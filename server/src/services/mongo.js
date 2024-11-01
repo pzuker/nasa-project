@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 
+require('dotenv').config();
+
 const { loadPlanetsData } = require('../models/planets.model');
 
-const MONGO_URL =
-  'mongodb+srv://nasaAdmin:Lrz6P11SZaI9Y7ae@nasaproject.mxmcf.mongodb.net/nasa?retryWrites=true&w=majority&appName=NasaProject';
+const MONGO_URL = process.env.MONGO_URL;
 
 mongoose.connection.once('open', () => {
   console.log('MongoDB connected!');
